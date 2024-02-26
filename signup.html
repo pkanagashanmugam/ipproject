@@ -1,0 +1,128 @@
+<!-- <?php
+if(isset($_POST['submit'])){
+    $my=new mysqli("localhost","root","","project");
+    $name=$_POST['name'];
+    $email=$_POST['email'];
+    $mobile=$_POST['phno'];
+    $pass=$_POST['password'];
+    $sql="insert into userreg (name,email,phno,pass) values('$name','$email','$mobile','$pass')";
+    $final=$my->query($sql);
+    if($final==true)
+    echo "INSERT SUCESSEFULL";
+    else
+    echo "INSERT UNSUCESSEFULL";
+    }
+?> -->
+
+<html>
+    <head>
+        <title>Login</title>
+        <link rel = "icon" href = "./Images/logo.avif"type = "image/x-icon"> 
+        <link rel="stylesheet" href="./Style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <style>
+            body {
+                background-image: url(./Images/remi-clinton-E5egsk4eUQ0-unsplash.jpg);
+                background-size: cover;
+                background-position: center; /* Center the background image */
+                margin: 0; /* Remove default body margin */
+                
+                /* align-items: center;  */
+                /* display: flex;
+                justify-content: center;*/
+            }
+            .sign-up-rect {
+            align-items: center;
+            margin-left: 400px;
+            margin-top: 10px;
+            opacity: 0.9; /* Adjust opacity as needed */
+            height: 590px;
+            width: 700px;
+            background-color: white;
+            /* text-align: center; */
+            position: relative;
+            z-index: 1; /* Ensure the form is on top of the background */
+        }
+
+        .container-fluid {
+            position: relative;
+            z-index: 2; /* Ensure the menu is on top of the background */
+            vertical-align:middle;
+        }
+        form{
+            padding-left: 20px;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+        }
+        </style>
+        <script>
+            function validate(){
+                var ent1=signupdetails.name.value;
+                var ent2=signupdetails.email.value;
+                var ent3=signupdetails.phno.value;
+                var ent4=signupdetails.password.value;
+                var ent5=signupdetails.cpassword.value;
+                if(ent1==""){
+                    alert("Enter your name");
+                    return false;
+                }
+                if(ent3.length!=10){
+                    alert("Enter your valid Phone Number");
+                    return false;
+                }
+                if(ent4.length<8){
+                    alert("Password must have atleast 8 characters");
+                    return false;
+                }
+                if(ent4!==ent5){
+                    alert("Passwords don't match");
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">Explore India.org</div>
+                <div class="col-md-8 menu-wrapper">
+                    <div class="menu">
+                        <ul class="top-menu d-flex" style="font-size: 14px; list-style: none; padding: 0;">
+                            <li class="mr-3"><a href="./Main.html">HOME</a></li>
+                            <li class="mr-3"><a href="#">PLACES</a></li>
+                            <li class="mr-3"><a href="#">PLAN</a></li>
+                            <li class="mr-3"><a href="#">CONTACT US</a></li>
+                            <li><a class="btn btn-primary" href="./Login.html">LOGIN/SIGNUP</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sign-up-rect"> 
+            <form onsubmit="return validate()" method="post" action="add.php" name="signupdetails">
+                <br><br><font style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;text-align: center;color:dodgerblue;padding-top: 5px;"><h3>Sign Up</h3></font><br><br>
+                <div class="form-group">
+                    Name
+                  <input type="text" class="form-control" name="name" aria-describedby="emailHelp" placeholder="Enter your Name">
+                </div>
+                <div class="form-group">
+                    Email
+                    <input type="email" class="form-control" name="email" placeholder="Enter your Email">
+                </div>
+                <div class="form-group">
+                    Mobile Number
+                    <input type="text" class="form-control" name="phno" placeholder="Enter your Mobile Number">
+                </div>                
+                <div class="form-group">
+                  Password
+                  <input type="password" class="form-control" name="password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    Confirm Password
+                    <input type="password" class="form-control" name="cpassword" placeholder="Re-enter your password">
+                  </div>
+                <button type="submit" class="btn btn-primary" name="btnsub">Submit</button>
+              </form>
+        </div>
+    </body>
+</html>
